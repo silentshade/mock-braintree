@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["brent.busby@yahoo.com"]
 
   spec.summary       = "A library for mocking Braintree calls and responses in your tests."
-  spec.homepage      = "https://github.com/buzzamus/baseball-gem"
+  spec.homepage      = "https://github.com/buzzamus/mock-braintree"
   spec.license       = "MIT"
 
 
