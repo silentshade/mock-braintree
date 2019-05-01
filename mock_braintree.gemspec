@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = MockBraintree::VERSION
   spec.authors       = ["Brent Busby"]
   spec.email         = ["brent.busby@yahoo.com"]
-
   spec.summary       = "A library for mocking Braintree calls and responses in your tests."
   spec.homepage      = "https://github.com/buzzamus/mock-braintree"
   spec.license       = "MIT"
@@ -16,8 +15,8 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }

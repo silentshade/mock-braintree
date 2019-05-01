@@ -22,6 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
+First, configure your mock Braintree integration by switching out your real Braintree configuration with `MockBraintree.new`
+
+example:
+
+```ruby
+def gateway
+  MockBraintree::Gateway.new
+end
+```
+
 MockBraintree lets you test simple result handling just like Braintree responses:
 
 ```ruby

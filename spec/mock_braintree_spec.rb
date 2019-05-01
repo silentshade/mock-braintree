@@ -1,6 +1,6 @@
 require 'mock_braintree'
 
-RSpec.describe 'fake_braintree' do
+RSpec.describe 'MockBraintree' do
   def gateway
     MockBraintree::Gateway.new
   end
