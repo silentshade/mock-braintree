@@ -54,7 +54,7 @@ While I work at Braintree, this library was neither built by Braintree, nor is i
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mock_braintree.
+Bug reports and pull requests are welcome on GitHub at https://github.com/buzzamus/mock_braintree.
 
 ## License
 
