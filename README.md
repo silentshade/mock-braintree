@@ -53,7 +53,9 @@ After checking out the repo, run `bin/setup` to install dependencies. You can al
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Disclaimer: While I work at Braintree, this library was neither built by Braintree, nor is it maintained by Braintree. If there is a feature you are looking for PRs are always welcome, or feel free to fork your own branch and make it your own. If you find a bug please open an issue on this repo and do not contact Braintree directly.
+
+## Disclaimer
+While I work at Braintree, this library was neither built by Braintree, nor is it maintained by Braintree. If there is a feature you are looking for PRs are always welcome, or feel free to fork your own branch and make it your own. If you find a bug please open an issue on this repo and do not contact Braintree directly.
 
 ## Contributing
 
