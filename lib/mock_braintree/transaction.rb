@@ -11,14 +11,6 @@ class Transaction
     @submit_for_settlement = submit_for_settlement
   end
 
-  def success?
-    if (status == 'authorized') || (status == 'submitted_for_settlement')
-      true
-    else
-      false
-    end
-  end
-
   def status
     if (amount.to_f < 2000) && (submit_for_settlement == true)
       'submitted_for_settlement'
@@ -33,9 +25,9 @@ class Transaction
     end
   end
 
-  def transaction
-    self
-  end
+  # def transaction
+  #   self
+  # end
 
   def id
     SecureRandom.hex(3)
