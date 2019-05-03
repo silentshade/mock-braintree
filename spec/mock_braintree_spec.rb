@@ -13,8 +13,9 @@ RSpec.describe 'MockBraintree' do
   describe 'successful results' do
     let(:result) { gateway.transaction.sale(nonce: 'fake-valid-nonce', amount: '20.00') }
 
-    it 'creates a result object with unsuccessful response' do
+    it 'creates a result object with successful response' do
       expect(result.success?).to be(true)
+      expect(result.class).to eq(SuccessfulResult)
     end
 
     it 'returns a transaction object in result object' do
@@ -32,14 +33,16 @@ RSpec.describe 'MockBraintree' do
 
   describe 'unsuccessful results' do
     let(:result) { gateway.transaction.sale(nonce: 'fake-valid-nonce', amount: '2000.00') }
+
     it 'returns an unsuccessful #success? response' do
       expect(result.success?).to be(false)
+      expect(result.class).to eq(UnsuccessfulResult)
     end
 
     it 'returns an unsuccessful status' do
       failed_result = gateway.transaction.sale(nonce: 'fake-valid-nonce', amount: '3000.00')
-      expect(result.status).to eq('processor_declined')
-      expect(failed_result.status).to eq('failed')
+      expect(result.transaction.status).to eq('processor_declined')
+      expect(failed_result.transaction.status).to eq('failed')
     end
 
     it 'returns a transaction ID' do
