@@ -1,12 +1,10 @@
 require 'securerandom'
 
 class Transaction
-  attr_reader :nonce, :amount
+  attr_reader :amount
 
   def initialize(hash = {})
     @amount = hash[:amount]
-    @nonce = hash[:nonce]
-    @id = id
     @options = hash.fetch(:options, nil)
     @submit_for_settlement = submit_for_settlement
   end
@@ -25,12 +23,8 @@ class Transaction
     end
   end
 
-  # def transaction
-  #   self
-  # end
-
   def id
-    SecureRandom.hex(3)
+    @id ||= SecureRandom.hex(3)
   end
 
   private
