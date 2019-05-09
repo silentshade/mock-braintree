@@ -1,6 +1,7 @@
-# 0.2.2(unreleased)  
+# 0.3.0
 * Add `created_at` attribute to transaction object
 * Add `transaction.refund` call
+* Add `transaction.void` call
 * Have transaction response wait within 2 to 5 seconds to more closely mimic response time
 
 # 0.2.1  
