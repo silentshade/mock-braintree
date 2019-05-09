@@ -47,6 +47,8 @@ puts result.transaction.id
   #=> 'ej6a32'
 ```
 
+You can also adjust the amount of time it takes for you to receive a response by adjusting the value of `WAIT_TIME` within `transaction_request.rb`. The default is between 2-5 seconds (with 3 seconds weighted at a 57% chance). It is recommended to remove, or comment out this value when running specs (these values are commented out by default).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

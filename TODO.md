@@ -12,3 +12,5 @@
 #### Make requests wait several seconds before returning response to match actual request times
 
 #### Add ability to create customer and/or payment method in transaction requests, return customer and payment method objects
+
+#### Add pre-created list of IDs that can reference fake transactions (for find calls, and other testing purposes)
