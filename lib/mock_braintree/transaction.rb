@@ -1,16 +1,22 @@
 require 'securerandom'
 
 class Transaction
-  attr_reader :amount
+  attr_reader :amount, :created_at, :order_id, :refunded_transaction_id
 
   def initialize(hash = {})
     @amount = hash[:amount]
     @options = hash.fetch(:options, nil)
+    @order_id = hash.fetch(:order_id, nil)
     @submit_for_settlement = submit_for_settlement
+    @created_at = Time.now.utc
+    @refunded_transaction_id = hash.fetch(:id, nil)
+    @void = hash.fetch(:void, false)
   end
 
   def status
-    if (amount.to_f < 2000) && (submit_for_settlement == true)
+    if @void == true
+      'voided'
+    elsif (amount.to_f < 2000) && (submit_for_settlement == true)
       'submitted_for_settlement'
     elsif (amount.to_f < 2000) && (submit_for_settlement == false)
       'authorized'

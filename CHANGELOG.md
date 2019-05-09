@@ -1,3 +1,8 @@
+# 0.2.2(unreleased)  
+* Add `created_at` attribute to transaction object
+* Add `transaction.refund` call
+* Have transaction response wait within 2 to 5 seconds to more closely mimic response time
+
 # 0.2.1  
 * Fix bug where transaction object would return new ID value each time called
 * Removed `nonce` attribute from transaction object to match actual Braintree response

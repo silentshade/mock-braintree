@@ -29,6 +29,10 @@ RSpec.describe 'MockBraintree' do
     it 'returns a transaction ID' do
       expect(result.transaction.id.length).to eq(6)
     end
+
+    it 'returns a UTC Time object' do
+      expect(result.transaction.created_at).to be_within(4).of(Time.now.utc)
+    end
   end
 
   describe 'unsuccessful results' do
@@ -59,6 +63,38 @@ RSpec.describe 'MockBraintree' do
     it 'returns an unsuccessful status even when there is a submit_for_settlement value passed' do
       result = gateway.transaction.sale(nonce: 'fake-valid-nonce', amount: '3000.00', options: { submit_for_settlement: true })
       expect(result.transaction.status).to eq('failed')
+    end
+  end
+
+  describe '#refund' do
+    let(:result) { gateway.transaction.refund('6xg32s') }
+    it 'returns the transaction ID argument as the refunded_transaction_id value' do
+      expect(result.transaction.refunded_transaction_id).to eq('6xg32s')
+    end
+
+    it 'returns a nil value for attributes not passed as arguments' do
+      expect(result.transaction.order_id).to eq(nil)
+    end
+
+    it 'returns the amount that is passed if included' do
+      result = gateway.transaction.refund('4345sx', '5.00')
+      expect(result.transaction.amount).to eq('5.00')
+    end
+
+    it 'accepts and returns an order_id value' do
+      result = gateway.transaction.refund('4345sx', '10.00', '64342-C')
+      expect(result.transaction.order_id).to eq('64342-C')
+    end
+
+    it 'should return a status of submitted_for_settlement' do
+      expect(result.transaction.status).to eq('submitted_for_settlement')
+    end
+  end
+
+  describe '#void' do
+    let(:result) { gateway.transaction.void('6xg32s') }
+    it 'should return status of voided' do
+      expect(result.transaction.status).to eq('voided')
     end
   end
 end
