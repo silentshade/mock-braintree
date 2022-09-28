@@ -4,6 +4,10 @@ class UnsuccessfulResult
     @transaction = Transaction.new(hash)
   end
 
+  def errors
+    "BOOM"
+  end
+
   def success?
     false
   end
