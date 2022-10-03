@@ -1,5 +1,9 @@
 class ClientTokenGateway
   def generate(options={})
-    "asdf01219399129s9dfjf"
+    if options.nil?
+      "abc123"
+    else
+      options
+    end
   end
 end

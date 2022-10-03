@@ -5,7 +5,7 @@ class UnsuccessfulResult
   end
 
   def errors
-    "BOOM"
+    "Transaction Error"
   end
 
   def success?
