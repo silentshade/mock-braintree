@@ -1,3 +1,9 @@
+# 0.4.0
+* BREAKING CHANGES
+* Modularized all classes in mock_braintree directory
+* Support PaymentMethod, Customer, CreditCard (with BillingAddress) responses. CreditCard response is hardcoded for now.
+* Added `gem 'braintree'` as a dependency. Gateways use Braintree validation of passed arguments.
+ 
 # 0.3.0
 * Add `created_at` attribute to transaction object
 * Add `transaction.refund` call

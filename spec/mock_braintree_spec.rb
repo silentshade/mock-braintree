@@ -15,11 +15,11 @@ RSpec.describe 'MockBraintree' do
 
     it 'creates a result object with successful response' do
       expect(result.success?).to be(true)
-      expect(result.class).to eq(SuccessfulResult)
+      expect(result.class).to eq(MockBraintree::SuccessfulResult)
     end
 
     it 'returns a transaction object in result object' do
-      expect(result.transaction.class).to eq(Transaction)
+      expect(result.transaction.class).to eq(MockBraintree::Transaction)
     end
 
     it 'returns a status in the transaction object' do
@@ -40,7 +40,7 @@ RSpec.describe 'MockBraintree' do
 
     it 'returns an unsuccessful #success? response' do
       expect(result.success?).to be(false)
-      expect(result.class).to eq(UnsuccessfulResult)
+      expect(result.class).to eq(MockBraintree::UnsuccessfulResult)
     end
 
     it 'returns an unsuccessful status' do
